@@ -34,4 +34,4 @@ USER dev
 RUN git clone https://github.com/keithseahus/dotfiles.git ~/.dotfiles \
     && cd ~/.dotfiles \
     && python ./set_symlinks_to_dotfiles.py
-CMD ["zsh"]
+
