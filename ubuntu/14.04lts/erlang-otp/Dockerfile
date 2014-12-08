@@ -1,12 +1,13 @@
-FROM ubuntu:14.04
+FROM keithseahus/ubuntu-14.04lts-base
 MAINTAINER Keisuke Takahashi <keithseahus@gmail.com>
 
-ENV REFRESHED_AT 2014-12-07
+ENV REFRESHED_AT 2014-12-08
+
+USER root
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
-ENV ELIXIR_VERSION 1.0.2
 ENV ERLANG_VERSION 17.1
 
 RUN locale-gen en_US.UTF-8
@@ -27,17 +28,8 @@ RUN apt-get install -y \
     libwxgtk2.8-dev \
     libqt4-opengl-dev \
     libgtk2.0-dev \
-    automake \
-    build-essential \
-    curl \
-    wget \
-    git \
     systemtap-sdt-dev \
-    libxml2-utils \
-    vim \
-    emacs \
-    zsh \
-    openssh-server
+    libxml2-utils
 
 ENV PATH /bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/erlang/bin
 
@@ -51,16 +43,5 @@ RUN cd /usr/local/src \
     && ln -snf /usr/local/erlang-otp-${ERLANG_VERSION} /usr/local/erlang \
     && echo -n '/usr/local/erlang/lib' | tee /etc/ld.so.conf.d/erlang
 
-#RUN git clone https://github.com/keithseahus/dotfiles.git ~/.dotfiles \
-#    && cd ~/.dotfiles \
-#    && python ./set_symlinks_to_dotfiles.py
+EXPOSE 4369 80 443 8080
 
-EXPOSE 22 4369 80 443 8080
-
-RUN useradd dev
-RUN mkdir /home/dev && chown -R dev: /home/dev
-
-WORKDIR /home/dev
-ENV HOME /home/dev
-USER dev
-CMD ["erl"]
