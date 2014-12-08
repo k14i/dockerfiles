@@ -45,3 +45,6 @@ RUN cd /usr/local/src \
 
 EXPOSE 4369 80 443 8080
 
+USER dev
+ENV PATH /bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/erlang/bin
+

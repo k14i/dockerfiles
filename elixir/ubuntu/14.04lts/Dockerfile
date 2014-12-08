@@ -26,4 +26,5 @@ RUN cd /usr/local/src \
     && echo -n '/usr/local/elixir/lib' | tee /etc/ld.so.conf.d/elixir
 
 USER dev
+ENV PATH /bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/erlang/bin:/usr/local/elixir/bin
 
