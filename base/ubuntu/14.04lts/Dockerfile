@@ -24,7 +24,12 @@ RUN apt-get install -y \
     emacs \
     zsh \
     screen \
-    tmux
+    tmux \
+    silversearcher-ag \
+    tcpdump \
+    nmap \
+    htop \
+    mosh
 
 RUN useradd -s /bin/zsh -m dev
 RUN echo 'dev ALL=(ALL:ALL) NOPASSWD:ALL' | tee /etc/sudoers.d/dev
