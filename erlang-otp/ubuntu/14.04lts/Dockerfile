@@ -1,14 +1,14 @@
 FROM keithseahus/base-ubuntu-14.04lts
 MAINTAINER Keisuke Takahashi <keithseahus@gmail.com>
 
-ENV REFRESHED_AT 2014-12-08
+ENV REFRESHED_AT 2014-12-11
 
 USER root
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
-ENV ERLANG_VERSION 17.1
+ENV ERLANG_VERSION 17.4
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
