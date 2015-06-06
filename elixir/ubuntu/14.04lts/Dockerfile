@@ -1,14 +1,14 @@
 FROM keithseahus/erlang-otp-ubuntu-14.04lts
 MAINTAINER Keisuke Takahashi <keithseahus@gmail.com>
 
-ENV REFRESHED_AT 2014-12-09
+ENV REFRESHED_AT 2015-06-06
 
 USER root
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
-ENV ELIXIR_VERSION 1.0.2
+ENV ELIXIR_VERSION 1.0.4
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
