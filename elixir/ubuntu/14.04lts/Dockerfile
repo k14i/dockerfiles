@@ -5,8 +5,9 @@ ENV REFRESHED_AT 2015-06-06
 
 USER root
 
-RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install nodejs nodejs-dev npm
 
 ENV ELIXIR_VERSION 1.0.4
 
